@@ -1,19 +1,21 @@
 .app {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .app-header {
   text-align: center;
-  padding: 16px 0;
+  padding: 20px 0 24px;
+  border-bottom: 1px solid #21262d;
 }
 
 .app-header h1 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   color: #e6edf3;
-  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
 }
 
 .subtitle {
@@ -29,17 +31,19 @@
 
 .search-input {
   width: 100%;
-  padding: 10px 14px;
+  padding: 12px 14px;
   background: #161b22;
   border: 1px solid #30363d;
   border-radius: 6px;
   color: #c9d1d9;
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
   border-color: #58a6ff;
+  box-shadow: 0 0 0 3px #1f6feb33;
 }
 
 .search-input::placeholder {
@@ -53,43 +57,48 @@
 }
 
 .tag-pill {
-  padding: 4px 10px;
+  padding: 5px 14px;
   font-size: 12px;
+  font-weight: 500;
   border-radius: 999px;
   border: 1px solid #30363d;
   background: #21262d;
   color: #8b949e;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
 }
 
 .tag-pill:hover {
-  border-color: #58a6ff;
+  border-color: #484f58;
   color: #c9d1d9;
+  background: #292e36;
 }
 
 .tag-pill.active {
   background: #1f6feb;
   border-color: #1f6feb;
   color: #fff;
+  box-shadow: 0 1px 4px #1f6feb44;
 }
 
 .bug-form {
   background: #161b22;
   border: 1px solid #30363d;
   border-radius: 8px;
-  padding: 20px;
+  padding: 24px;
 }
 
 .bug-form h2 {
   font-size: 16px;
   font-weight: 600;
   color: #e6edf3;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #21262d;
 }
 
 .form-group {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .form-group label {
@@ -97,21 +106,22 @@
   font-size: 13px;
   font-weight: 500;
   color: #c9d1d9;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 8px 10px;
+  padding: 10px 12px;
   background: #0d1117;
   border: 1px solid #30363d;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #c9d1d9;
   font-size: 14px;
   font-family: inherit;
   outline: none;
   resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-group input.mono,
@@ -123,18 +133,19 @@
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: #58a6ff;
+  box-shadow: 0 0 0 3px #1f6feb33;
 }
 
 .form-error {
   color: #f85149;
   font-size: 12px;
-  margin-top: 4px;
+  margin-top: 6px;
   display: block;
 }
 
 .submit-btn {
   margin-top: 4px;
-  padding: 8px 20px;
+  padding: 10px 24px;
   background: #238636;
   border: 1px solid #2ea043;
   border-radius: 6px;
@@ -142,11 +153,16 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 
 .submit-btn:hover {
   background: #2ea043;
+  box-shadow: 0 2px 8px #2ea04344;
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
 }
 
 .bug-list {
@@ -158,8 +174,15 @@
 .bug-card {
   background: #161b22;
   border: 1px solid #30363d;
+  border-left: 3px solid #58a6ff;
   border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.bug-card:hover {
+  box-shadow: 0 4px 16px #0008;
+  transform: translateY(-1px);
 }
 
 .bug-card-header {
@@ -167,23 +190,27 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .bug-card-header h3 {
   font-size: 15px;
   font-weight: 600;
   color: #e6edf3;
+  line-height: 1.4;
 }
 
 .bug-date {
   font-size: 12px;
   color: #8b949e;
   white-space: nowrap;
+  padding: 2px 8px;
+  background: #21262d;
+  border-radius: 4px;
 }
 
 .bug-field {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .bug-field label {
@@ -192,7 +219,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #8b949e;
+  color: #58a6ff;
   margin-bottom: 4px;
 }
 
@@ -201,47 +228,55 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-top: 12px;
-  padding-top: 10px;
+  margin-top: 16px;
+  padding-top: 12px;
   border-top: 1px solid #21262d;
 }
 
 .bug-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 6px;
 }
 
 .bug-tag {
-  padding: 2px 8px;
+  padding: 3px 10px;
   font-size: 11px;
-  background: #1f2937;
-  color: #7ee787;
+  font-weight: 500;
+  background: #58a6ff11;
+  color: #79c0ff;
+  border: 1px solid #58a6ff22;
   border-radius: 999px;
 }
 
 .delete-btn {
-  padding: 4px 12px;
+  padding: 5px 14px;
   font-size: 12px;
+  font-weight: 500;
   background: transparent;
   border: 1px solid #30363d;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #f85149;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
 }
 
 .delete-btn:hover {
-  background: #da3633;
-  border-color: #da3633;
-  color: #fff;
+  background: #f8514911;
+  border-color: #f85149;
+  color: #f85149;
+  box-shadow: 0 0 0 3px #f8514922;
 }
 
 .empty-state {
   text-align: center;
-  padding: 48px 16px;
-  color: #8b949e;
+  padding: 64px 16px;
+  color: #484f58;
   font-size: 14px;
+}
+
+.empty-state p {
+  color: #8b949e;
 }
 
 @media (max-width: 640px) {
@@ -249,13 +284,21 @@
     padding: 16px 12px;
   }
 
+  .app-header h1 {
+    font-size: 26px;
+  }
+
   .bug-card-header {
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
   .bug-card-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .submit-btn {
+    width: 100%;
   }
 }
