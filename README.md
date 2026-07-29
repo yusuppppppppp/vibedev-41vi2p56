@@ -107,12 +107,6 @@ Example:
 /public/preview.png
 ```
 
-Then reference it:
-
-```md
-![Bug Journal Preview](public/preview.png)
-```
-
 ---
 
 ## 📄 License
