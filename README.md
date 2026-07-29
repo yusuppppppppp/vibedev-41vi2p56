@@ -1,75 +1,120 @@
-# React + TypeScript + Vite
+# 🐞 Bug Journal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Never solve the same bug twice.**
 
-Currently, two official plugins are available:
+Bug Journal is a lightweight developer knowledge base that helps developers record bugs they've solved, so they can quickly find the solution instead of searching the web again.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built for the **Vibe Coding Challenge** using **React 19**, **TypeScript**, and **Vite** with **localStorage** for persistence.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+* 📝 Create bug entries
+* 🔍 Real-time search
+* 🏷️ Filter by tags
+* 🗑️ Delete bug entries
+* 💾 Persistent storage with localStorage
+* 📅 Automatic logging date
+* 📌 Newest bugs displayed first
+* 🌙 Developer-friendly dark UI
+* 💻 Monospace formatting for error logs and fixes
+* 📱 Responsive design
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📋 Bug Entry Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Each bug contains:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Title
+* Error Message / Symptom
+* Root Cause
+* Fix
+* Tags
+* Date Logged
 
+---
+
+## 🛠️ Tech Stack
+
+* React 19
+* TypeScript
+* Vite
+* CSS
+* localStorage
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/
+├── data/
+├── lib/
+├── types/
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+---
+
+## 💡 Motivation
+
+Developers often encounter the same errors multiple times throughout different projects.
+
+Instead of repeatedly searching online, Bug Journal acts as a personal knowledge base where solved bugs can be documented and retrieved instantly.
+
+---
+
+## 📸 Preview
+
+> Add a screenshot of your application here.
+
+Example:
 
 ```
+/public/preview.png
+```
+
+Then reference it:
+
+```md
+![Bug Journal Preview](public/preview.png)
+```
+
+---
+
+## 📄 License
+
+This project was created for the **Vibe Coding Challenge**.
