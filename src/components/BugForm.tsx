@@ -11,13 +11,18 @@ export function BugForm({ onSubmit }: BugFormProps) {
   const [rootCause, setRootCause] = useState('')
   const [fix, setFix] = useState('')
   const [tagsInput, setTagsInput] = useState('')
-  const [errors, setErrors] = useState<{ title?: string; errorMessage?: string }>({})
+  const [errors, setErrors] = useState<{ title?: string; errorMessage?: string; tags?: string }>({})
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const newErrors: typeof errors = {}
     if (!title.trim()) newErrors.title = 'Title is required'
     if (!errorMessage.trim()) newErrors.errorMessage = 'Error message is required'
+    const parsedTags = tagsInput
+      .split(',')
+      .map((t) => t.trim().toLowerCase())
+      .filter(Boolean)
+    if (parsedTags.length === 0) newErrors.tags = 'At least one tag is required'
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
@@ -29,10 +34,7 @@ export function BugForm({ onSubmit }: BugFormProps) {
       errorMessage: errorMessage.trim(),
       rootCause: rootCause.trim(),
       fix: fix.trim(),
-      tags: tagsInput
-        .split(',')
-        .map((t) => t.trim().toLowerCase())
-        .filter(Boolean),
+      tags: parsedTags,
     })
 
     setTitle('')
@@ -94,7 +96,7 @@ export function BugForm({ onSubmit }: BugFormProps) {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="tags">Tags (comma-separated)</label>
+        <label htmlFor="tags">Tags (comma-separated) *</label>
         <input
           id="tags"
           type="text"
@@ -102,6 +104,7 @@ export function BugForm({ onSubmit }: BugFormProps) {
           onChange={(e) => setTagsInput(e.target.value)}
           placeholder="react, typescript, hooks"
         />
+        {errors.tags && <span className="form-error">{errors.tags}</span>}
       </div>
       <button type="submit" className="submit-btn">
         Save Bug
